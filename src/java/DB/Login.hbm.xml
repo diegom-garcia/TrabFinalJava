@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/11/2020 19:14:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="trabfinal" name="DB.Login" optimistic-lock="version" table="login">
+    <id name="idLogin" type="java.lang.Integer">
+      <column name="ID_LOGIN"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="DB.Funcionarios" fetch="select" name="funcionarios">
+      <column name="ID_FUNC" not-null="true"/>
+    </many-to-one>
+    <property name="usuario" type="string">
+      <column name="USUARIO" not-null="true"/>
+    </property>
+    <property name="senha" type="string">
+      <column name="SENHA" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

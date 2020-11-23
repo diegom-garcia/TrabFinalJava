@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/11/2020 19:14:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="trabfinal" name="DB.Inventario" optimistic-lock="version" table="inventario">
+    <id name="idInv" type="java.lang.Integer">
+      <column name="ID_INV"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="DB.Departamentos" fetch="select" name="departamentos">
+      <column name="ID_DEPARTAMENTO"/>
+    </many-to-one>
+    <many-to-one class="DB.Equipamentos" fetch="select" name="equipamentos">
+      <column name="CHAVE_EQUIP"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/11/2020 19:14:42 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="trabfinal" name="DB.Equipamentos" optimistic-lock="version" table="equipamentos">
+    <id name="chaveEquip" type="string">
+      <column name="CHAVE_EQUIP"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nome" type="string">
+      <column name="NOME"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="inventarios" table="inventario">
+      <key>
+        <column name="CHAVE_EQUIP"/>
+      </key>
+      <one-to-many class="DB.Inventario"/>
+    </set>
+  </class>
+</hibernate-mapping>
