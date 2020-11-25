@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="InserirEquipamentoActionForm" type="Form.InserirEquipamentoActionForm"/>
     
     </form-beans>
     
@@ -19,6 +20,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/TelaPrincipal.jsp" name="InserirEquipamentoActionForm" path="/inserirEquipamento" scope="request" type="Action.InserirEquipamentoAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
