@@ -10,6 +10,7 @@ import DB.Equipamentos;
 import DB.HibernateUtil;
 import DB.Inventario;
 import Form.InserirEquipamentoActionForm;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -45,10 +46,10 @@ public class InserirEquipamentoAction extends org.apache.struts.action.Action {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        Equipamentos equipamentos = (Equipamentos) session.createQuery("FROM Equipamentos where chave_equip = " + formBean.getNomeEquip());
-        //Departamentos departamento = (Departamentos) session.createQuery("FROM DEPARTAMENTOS where ID_DEPARTAMENTO = " + 1);
-        //Inventario inventario = new Inventario(formBean.getIdEquip(),equipamentos );
-        //session.save(inventario);
+        List <Equipamentos> equipamentos =  session.createQuery("from Equipamentos where chave_equip = " + formBean.getNomeEquip()).list();
+        List <Departamentos> departamentos = session.createQuery("FROM DEPARTAMENTOS where ID_DEPARTAMENTO = " + 1).list();
+        Inventario inventario = new Inventario(departamentos.get(0),equipamentos.get(0) );
+        session.save(inventario);
         transaction.commit();
         session.flush();
         session.close();
