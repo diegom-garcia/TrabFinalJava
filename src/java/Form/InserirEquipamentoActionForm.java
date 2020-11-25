@@ -5,11 +5,15 @@
  */
 package Form;
 
+import DB.Departamentos;
+import DB.HibernateUtil;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.hibernate.Session;
 
 /**
  *
@@ -20,6 +24,24 @@ public class InserirEquipamentoActionForm extends org.apache.struts.action.Actio
     private String nomeEquip;
     private int idEquip;
     private int qtdeEquip;
+    private List<Departamentos> departamentos;
+    private int departamento;
+
+    public int getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(int departamento) {
+        this.departamento = departamento;
+    }
+    
+    public List<Departamentos> getDepartamentos(){
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        departamentos = session.createQuery("from DEPARTAMENTOS").list();
+//        session.close();
+        departamentos.add(new Departamentos());
+        return departamentos;
+    }
     
     /**
      *
@@ -38,17 +60,14 @@ public class InserirEquipamentoActionForm extends org.apache.struts.action.Actio
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-//        if (getNomeEquip() == null || getNomeEquip().equals("")) {
-//            errors.add("nomeEquip", new ActionMessage("error.nomeEquip.required"));
-//            // TODO: add 'error.name.required' key to your resources
-//        }
+        if (getNomeEquip() == null || getNomeEquip().equals("")) {
+            errors.add("nomeEquip", new ActionMessage("error.nomeEquip.required"));
+        }
 //        if (getIdEquip() > 1) {
 //            errors.add("idEquip", new ActionMessage("error.idEquip.required"));
-//            // TODO: add 'error.name.required' key to your resources
 //        }
         if (getQtdeEquip() > 1) {
             errors.add("qtdeEquip", new ActionMessage("error.qtdeEquip.required"));
-            // TODO: add 'error.name.required' key to your resources
         }
         return errors;
     }

@@ -25,8 +25,12 @@
                         <td><html:text name="InserirEquipamentoActionForm" property="nomeEquip" /> </td>
                     </tr>
                     <tr>
-                        <td>Id_Departamento:</td>
-                        <td><html:text name="InserirEquipamentoActionForm" property="idEquip" /></td>
+                        <td>Departamento:</td>
+                        <td>
+                            <html:select name="InserirEquipamentoActionForm" property="departamento">   
+                                <html:optionsCollection name="InserirEquipamentoActionForm" property="departamentos" label="nome" value="idDepartamento" />
+                            </html:select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Qtde:</td>
