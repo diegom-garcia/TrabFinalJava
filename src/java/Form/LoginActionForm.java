@@ -57,11 +57,9 @@ public class LoginActionForm extends org.apache.struts.action.ActionForm {
         ActionErrors errors = new ActionErrors();
         if (getUsuario()== null || getUsuario().equals("")) {
             errors.add("usuario", new ActionMessage("error.usuario.required"));
-            
         }
         if (getSenha()== null || getSenha().equals("")) {
             errors.add("senha", new ActionMessage("error.senha.required"));
-            
         }
         return errors;
     }

@@ -46,7 +46,7 @@ public class InserirEquipamentoActionForm extends org.apache.struts.action.Actio
 //            errors.add("idEquip", new ActionMessage("error.idEquip.required"));
 //            // TODO: add 'error.name.required' key to your resources
 //        }
-        if (getQtdeEquip() > 1) {
+        if (getQtdeEquip() >= 1) {
             errors.add("qtdeEquip", new ActionMessage("error.qtdeEquip.required"));
             // TODO: add 'error.name.required' key to your resources
         }
